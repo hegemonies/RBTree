@@ -17,7 +17,7 @@ bstree *bstree_create(char *key, int value, bstree *parent)
 	b->parent = parent;
 	return b;
 }
-
+/*
 bstree *_bstree_add(bstree *tree, char *key, int value, bstree *parent)
 {
 	if (tree == NULL) {
@@ -28,6 +28,35 @@ bstree *_bstree_add(bstree *tree, char *key, int value, bstree *parent)
 		tree->right = bstree_add(tree->right, key, value, tree);
 	}
 	return tree;
+}
+*/
+
+bstree *RBT_add(bstree *root, char *key, int value)
+{
+	if (!root) {
+		root = bstree_create(key, value, NULL);
+		return root;
+	}
+	bstree *node = root;
+	bstree *parent;
+	while (node) {
+		if (!strcmp(key, tree->key)) {
+			break;
+		}
+		if (strcmp(key, tree->key) < 0) {
+			parent = node;
+			node = node->left;
+			parent->left = node;
+		} else {
+			parent = node;
+			node = node->right;
+			parent->right = node;
+		}
+		
+		//node = strcmp(key, tree->key) < 0 : node->left ? node->right;
+	}
+	node = bstree_create(key, value, parent);
+	
 }
 
 bstree *bstree_search(bstree *node, char *key)
