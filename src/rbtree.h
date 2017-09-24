@@ -30,11 +30,11 @@ rbtree *rbtree_max(rbtree *root);
 
 void print_tree(rbtree *root);
 
-void rbtree_fixup(rbtree *root,	rbtree *node);
+rbtree *rbtree_fixup(rbtree *root,	rbtree *node);
 
-void rbtree_rotate_left(rbtree *node);
+rbtree *rbtree_rotate_left(rbtree *node);
 
-void rbtree_rotate_right(rbtree *node);
+rbtree *rbtree_rotate_right(rbtree *node);
 
 void print_tree_full(rbtree *node);
 
