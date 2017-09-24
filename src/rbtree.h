@@ -7,27 +7,33 @@ typedef enum {
 } nodeColors;
 
 typedef struct rbtree {
-	int value;
-	char *key;
+	char *value;
+	int key;
 	struct rbtree *left;
 	struct rbtree *right;
 	struct rbtree *parent;
-	colors color;
+	nodeColors color;
 } rbtree;
 
 
-rbtree *rbtree_create(char *key, int value, rbtree *parent);
+rbtree *rbtree_create(int key, char *value, rbtree *parent);
 
-rbtree *rbtree_add(rbtree *root, char *key, int value, rbtree *parent);
+rbtree *rbtree_add(rbtree *root, int key, char *value);
 
-//rbtree *rbtree_lookup(rbtree *root, char *key);
+void rbtree_delete(rbtree *root, int key);
 
-rbtree *rbtree_search(rbtree *node, char *key);
+rbtree *rbtree_lookup (rbtree *root, int key);
 
 rbtree *rbtree_min(rbtree *root);
 
 rbtree *rbtree_max(rbtree *root);
 
 void print_tree(rbtree *root);
+
+void rbtree_fixup(rbtree *root,	rbtree *node);
+
+void rbtree_rotate_left(rbtree *node);
+
+void rbtree_rotate_right(rbtree *node);
 
 #endif
