@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "bstree.h"
+#include "rbtree.h"
 
-bstree *bstree_create(char *key, int value, bstree *parent)
+rbtree *rbtree_create(char *key, int value, rbtree *parent)
 {
-	bstree *b = malloc(sizeof(bstree));
+	rbtree *b = malloc(sizeof(rbtree));
 	if (b == NULL) {
 		return NULL;
 	}
@@ -18,27 +18,27 @@ bstree *bstree_create(char *key, int value, bstree *parent)
 	return b;
 }
 /*
-bstree *_bstree_add(bstree *tree, char *key, int value, bstree *parent)
+rbtree *_rbtree_add(rbtree *tree, char *key, int value, rbtree *parent)
 {
 	if (tree == NULL) {
-		tree = bstree_create(key, value, parent);
+		tree = rbtree_create(key, value, parent);
 	} else if (strcmp(key, tree->key) < 0) {
-		tree->left = bstree_add(tree->left, key, value, tree);
+		tree->left = rbtree_add(tree->left, key, value, tree);
 	} else if (strcmp(key, tree->key) > 0){
-		tree->right = bstree_add(tree->right, key, value, tree);
+		tree->right = rbtree_add(tree->right, key, value, tree);
 	}
 	return tree;
 }
 */
 
-bstree *RBT_add(bstree *root, char *key, int value)
+rbtree *RBT_add(rbtree *root, char *key, int value)
 {
 	if (!root) {
-		root = bstree_create(key, value, NULL);
+		root = rbtree_create(key, value, NULL);
 		return root;
 	}
-	bstree *node = root;
-	bstree *parent;
+	rbtree *node = root;
+	rbtree *parent;
 	while (node) {
 		if (!strcmp(key, tree->key)) {
 			break;
@@ -55,11 +55,11 @@ bstree *RBT_add(bstree *root, char *key, int value)
 		
 		//node = strcmp(key, tree->key) < 0 : node->left ? node->right;
 	}
-	node = bstree_create(key, value, parent);
+	node = rbtree_create(key, value, parent);
 	
 }
 
-bstree *bstree_search(bstree *node, char *key)
+rbtree *rbtree_search(rbtree *node, char *key)
 {
 	while (node) {
 		char *tmp = malloc(strlen(key) + 1);
@@ -84,7 +84,7 @@ bstree *bstree_search(bstree *node, char *key)
 	return NULL;
 }
 
-bstree *bstree_min(bstree *tree) {
+rbtree *rbtree_min(rbtree *tree) {
 	if (tree == NULL) {
 		return NULL;
 	}
@@ -95,7 +95,7 @@ bstree *bstree_min(bstree *tree) {
 	return tree;
 }
 
-bstree *bstree_max(bstree *tree) {
+rbtree *rbtree_max(rbtree *tree) {
 	if (tree == NULL) {
 		return NULL;
 	}
@@ -106,7 +106,7 @@ bstree *bstree_max(bstree *tree) {
 	return tree;
 }
 
-void print_tree(bstree *tree)
+void print_tree(rbtree *tree)
 {
     if (tree == NULL) {
     	return;
