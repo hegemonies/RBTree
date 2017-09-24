@@ -36,4 +36,6 @@ void rbtree_rotate_left(rbtree *node);
 
 void rbtree_rotate_right(rbtree *node);
 
+void print_tree_full(rbtree *node);
+
 #endif

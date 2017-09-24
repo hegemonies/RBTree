@@ -50,36 +50,32 @@ void free_str(char **str, int num)
 
 int main()
 {
-	srand(time(0));
+	printf("key\tvalue\t&node\t\tparent\t\tleft\t\tright\t\tcolor\n\n");
 
-	rbtree *root = rbtree_create(10, "10", NULL);
-	rbtree *one = rbtree_add(root, 5, "1");
-	rbtree *two = rbtree_add(root, 6, "2");
-	rbtree *three = rbtree_add(root, 11, "3");
-
-	printf("%d :: %s :: %p :: %p :: %p :: %p\n", root->key, root->value, root, root->parent, root->left, root->right);
-	printf("%d :: %s :: %p :: %p :: %p :: %p\n", one->key, one->value, one, one->parent, one->left, one->right);
-	printf("%d :: %s :: %p :: %p :: %p :: %p\n", two->key, two->value, two, two->parent, two->left, two->right);
-	printf("%d :: %s :: %p :: %p :: %p :: %p\n", three->key, three->value, three, three->parent, three->left, three->right);
-
-	print_tree(root);
-
-	rbtree_delete(root, 10);
-
-	if (root) {
-		printf("\n\n%d :: %s :: %p :: %p :: %p :: %p\n", root->key, root->value, root, root->parent, root->left, root->right);
-		if (one) {
-			printf("%d :: %s :: %p :: %p :: %p :: %p\n", one->key, one->value, one, one->parent, one->left, one->right);
-		}
-		if (two) {
-			printf("%d :: %s :: %p :: %p :: %p :: %p\n", two->key, two->value, two, two->parent, two->left, two->right);
-		}
-		if (three) {
-			printf("%d :: %s :: %p :: %p :: %p :: %p\n", three->key, three->value, three, three->parent, three->left, three->right);
-		}
-	}
-	
-	print_tree(root);
-	
+	rbtree *root = rbtree_add(NULL, 10, "10");
+	print_tree_full(root);
+printf("\n");
+	rbtree_add(root, 5, "5");
+	print_tree_full(root);
+printf("\n");
+	rbtree_add(root, 3, "3");
+	print_tree_full(root);
+	/*
+printf("\n");
+	rbtree_add(root, 11, "11");
+	print_tree_full(root);
+printf("\n");
+	rbtree_add(root, 12, "12");
+	print_tree_full(root);
+printf("\n");
+	rbtree_add(root, 6, "6");
+	print_tree_full(root);
+printf("\n");
+	rbtree_add(root, 8, "8");
+	print_tree_full(root);
+printf("\n");
+	rbtree_add(root, 9, "9");
+	print_tree_full(root);
+	*/
 	return 0;
 }
