@@ -52,33 +52,43 @@ int main()
 {
 	printf("key\tvalue\t&node\t\tparent\t\tleft\t\tright\t\tcolor\n\n");
 
-	rbtree *root = rbtree_add(NULL, 10, "10");
-	print_tree_full(root);
-printf("\n");
+	struct rbtree *root = rbtree_add(NULL, 10, "10");
+	//print_tree_full(root);
+	//printf("\n");
 	root = rbtree_add(root, 5, "5");
-	print_tree_full(root);
-printf("\n");
+	//print_tree_full(root);
+	//printf("\n");
 	root = rbtree_add(root, 3, "3");
-	print_tree_full(root);
+	//print_tree_full(root);
 
-printf("\n");
+	//printf("\n");
 	root = rbtree_add(root, 11, "11");
-	print_tree_full(root);
+	//print_tree_full(root);
 
-printf("\n");
+	//printf("\n");
 	root = rbtree_add(root, 12, "12");
-	print_tree_full(root);
+	//print_tree_full(root);
 
-	printf("\n");
+	//printf("\n");
 	root = rbtree_add(root, 6, "6");
-	print_tree_full(root);
+	//print_tree_full(root);
 
-	printf("\n");
+	//printf("\n");
 	root = rbtree_add(root, 8, "8");
-	print_tree_full(root);
+	//print_tree_full(root);
 
-	printf("\n");
+	//printf("\n");
 	root = rbtree_add(root, 9, "9");
 	print_tree_full(root);
+
+
+	printf("\n");
+	root = rbtree_delete(root, 9);
+	print_tree_full(root);
+
+	printf("\n");
+	root = rbtree_delete(root, 10);
+	print_tree_full(root);
+
 	return 0;
 }

@@ -1,5 +1,5 @@
-#ifndef rbtree_H
-#define rbtree_H
+#ifndef RBTREE_H
+#define RBTREE_H
 
 typedef enum {
 	red,
@@ -15,12 +15,19 @@ typedef struct rbtree {
 	nodeColors color;
 } rbtree;
 
+//struct rbtree EmptyNode = {0, 0, NULL, NULL, NULL, black};
+//struct rbtree *NullNode = &EmptyNode; 
+
 
 rbtree *rbtree_create(int key, char *value, rbtree *parent);
 
 rbtree *rbtree_add(rbtree *root, int key, char *value);
 
-void rbtree_delete(rbtree *root, int key);
+rbtree *rbtree_delete(rbtree *root, int key);
+
+rbtree *rbtree_transplant(rbtree *root, rbtree *node, rbtree *new_node);
+
+rbtree *rbtree_delete_fixup(rbtree *root, rbtree *node);
 
 rbtree *rbtree_lookup (rbtree *root, int key);
 
