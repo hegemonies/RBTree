@@ -83,11 +83,7 @@ int main()
 
 
 	printf("\n");
-	root = rbtree_delete(root, 9);
-	print_tree_full(root);
-
-	printf("\n");
-	root = rbtree_delete(root, 10);
+	root = rbtree_delete(root, 5);
 	print_tree_full(root);
 
 	return 0;
